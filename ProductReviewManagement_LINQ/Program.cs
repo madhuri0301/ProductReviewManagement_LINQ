@@ -43,6 +43,10 @@ namespace ProductReviewManagement_LINQ
             {
                 Console.WriteLine("Product id = " + lists.ProductId + " User id = " + lists.UserId + " Rating is = " + lists.Rating + " Review is = " + lists.Review + " isLike = " + lists.isLike);
             }
+            Console.WriteLine("\n TOP_THREE_REVIEWS");
+            Management management = new Management();
+            management.TopRecord(list);
+            Console.ReadKey();
         }
 
     }
