@@ -65,6 +65,8 @@ namespace ProductReviewManagement_LINQ
             {
                 data.Rows.Add(table.ProductId, table.UserId, table.Rating, table.Review, table.isLike);
             }
+
+            management.RetrieveRecordsWithisLikeTrue(data);
             Console.ReadKey();
         }
 

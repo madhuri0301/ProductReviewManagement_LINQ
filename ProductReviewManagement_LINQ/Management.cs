@@ -90,6 +90,18 @@ namespace ProductReviewManagement_LINQ
             dataTable.Columns.Add(tableColumn5);
             return dataTable;
         }
+        public void RetrieveRecordsWithisLikeTrue(DataTable table)
+        {
+            var recordedData = from productReviews in table.AsEnumerable()
+                               where (productReviews.Field<bool>("isLike") == true)
+                               select productReviews;
+            Console.WriteLine("Records with isLike=true Value");
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductID:- " + list.Field<int>("ProductID") + " " + "UserID:- " + list.Field<int>("UserID")
+                    + " " + "Rating:- " + list.Field<double>("Rating") + " " + "Review:- " + list.Field<string>("Review") + " " + "isLike:- " + list.Field<bool>("isLike"));
+            }
+        }
     }
 }
 
