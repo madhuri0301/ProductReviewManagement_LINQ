@@ -46,6 +46,9 @@ namespace ProductReviewManagement_LINQ
             Console.WriteLine("\n TOP_THREE_REVIEWS");
             Management management = new Management();
             management.TopRecord(list);
+
+            Console.WriteLine("\n Select Record 1 , 4 , 9 Whos Rating > 3");
+            management.SelectRecords(list);
             Console.ReadKey();
         }
 
