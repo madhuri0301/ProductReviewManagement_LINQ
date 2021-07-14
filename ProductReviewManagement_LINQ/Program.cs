@@ -52,6 +52,8 @@ namespace ProductReviewManagement_LINQ
 
             Console.WriteLine("\n Count of Records Using GroupBy");
             management.CountOfRecords(list);
+
+            management.RetrieveIdAndReview(list);
             Console.ReadKey();
         }
 
