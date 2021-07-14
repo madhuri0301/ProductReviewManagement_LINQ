@@ -54,6 +54,9 @@ namespace ProductReviewManagement_LINQ
             management.CountOfRecords(list);
 
             management.RetrieveIdAndReview(list);
+
+            Console.WriteLine("\n Skip Top Five Records");
+            management.SkipTopFiveRecord(list);
             Console.ReadKey();
         }
 
