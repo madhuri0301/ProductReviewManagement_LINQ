@@ -102,6 +102,15 @@ namespace ProductReviewManagement_LINQ
                     + " " + "Rating:- " + list.Field<double>("Rating") + " " + "Review:- " + list.Field<string>("Review") + " " + "isLike:- " + list.Field<bool>("isLike"));
             }
         }
+        public void GetAvgRatings(List<ProductReview> listProductReview)
+        {
+            Console.WriteLine("\n ID Avg Rating");
+            var recordedData = listProductReview.GroupBy(x => x.ProductId).Select(x => new { id = x.Key, avg = x.Average(y => y.Rating) });
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine(list.id + "----->" + list.avg);
+            }
+        }
     }
 }
 
