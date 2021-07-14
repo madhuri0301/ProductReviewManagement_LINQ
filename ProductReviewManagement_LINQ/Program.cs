@@ -72,6 +72,9 @@ namespace ProductReviewManagement_LINQ
 
             Console.WriteLine("\n Get Nice Review");
             management.GetNiceReview(list);
+
+            Console.WriteLine("\n Data ID 10th Record ");
+            management.GetRecord_ByUserID(list);
             Console.ReadKey();
         }
 
