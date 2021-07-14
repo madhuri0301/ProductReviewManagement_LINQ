@@ -50,6 +50,11 @@ namespace ProductReviewManagement_LINQ
                 Console.WriteLine("Product id = " + lists.ProductId + " User id = " + lists.UserId + " Rating is = " + lists.Rating + " Review is = " + lists.Review + " isLike = " + lists.isLike);
             }
         }
+        /// <summary>
+        /// Method To Count Records
+        /// GroupBy : Used To arrange Identical Data
+        /// </summary>
+        /// <param name="listProductReview"></param>
         public void CountOfRecords(List<ProductReview> listProductReview)
         {
             var recordData = listProductReview.GroupBy(x => x.ProductId).Select(x => new { ProductID = x.Key, Count = x.Count() });
@@ -59,6 +64,11 @@ namespace ProductReviewManagement_LINQ
                 Console.WriteLine(list.ProductID + "-----" + list.Count);
             }
         }
+        /// <summary>
+        /// Method For RetriveIdAndReview
+        /// Select : Each Source Element
+        /// </summary>
+        /// <param name="listProductReview"></param>
         public void RetrieveIdAndReview(List<ProductReview> listProductReview)
         {
             var recordedData = listProductReview.Select(x => new { ProductID = x.ProductId, Review = x.Review });
@@ -68,6 +78,11 @@ namespace ProductReviewManagement_LINQ
                 Console.WriteLine(list.ProductID + "---->" + list.Review);
             }
         }
+        /// <summary>
+        /// Method For Skipping Five Records
+        /// OrderBy sorts the values of a collection in ascending or descending order.
+        /// </summary>
+        /// <param name="listProductReview"></param>
         public void SkipTopFiveRecord(List<ProductReview> listProductReview)
         {
             var recordData = (from productReview in listProductReview
@@ -76,6 +91,11 @@ namespace ProductReviewManagement_LINQ
 
             DisplayRecord(recordData);
         }
+        /// <summary>
+        /// Method For CreateTable
+        /// </summary>
+        /// <param name="productReview"></param>
+        /// <returns></returns>
         public DataTable CreateTable(List<ProductReview> productReview)
         {
             var tableColumn1 = new DataColumn("ProductId", typeof(int));
@@ -90,6 +110,10 @@ namespace ProductReviewManagement_LINQ
             dataTable.Columns.Add(tableColumn5);
             return dataTable;
         }
+        /// <summary>
+        /// /Method For Retriving IsLikeTrue
+        /// </summary>
+        /// <param name="table"></param>
         public void RetrieveRecordsWithisLikeTrue(DataTable table)
         {
             var recordedData = from productReviews in table.AsEnumerable()
@@ -111,6 +135,10 @@ namespace ProductReviewManagement_LINQ
                 Console.WriteLine(list.id + "----->" + list.avg);
             }
         }
+        /// <summary>
+        /// Method To Get NiceReview
+        /// </summary>
+        /// <param name="listproductReview"></param>
         public void GetNiceReview(List<ProductReview> listproductReview)
         {
             var recordData = (from ProductReview in listproductReview
@@ -118,6 +146,10 @@ namespace ProductReviewManagement_LINQ
                               select ProductReview).ToList();
             DisplayRecord(recordData);
         }
+        /// <summary>
+        /// Method To Get Record By User Id
+        /// </summary>
+        /// <param name="listproductReview"></param>
         public void GetRecord_ByUserID(List<ProductReview> listproductReview)
         {
 
@@ -127,6 +159,16 @@ namespace ProductReviewManagement_LINQ
                               select ProductReview).ToList();
             DisplayRecord(recordData);
         }
+        public void GetRecord_ByUserID1(List<ProductReview> listproductReview)
+        {
+
+            var recordData = (from ProductReview in listproductReview
+                              where (ProductReview.UserId == 11)
+                              orderby ProductReview.Rating descending
+                              select ProductReview).ToList();
+            DisplayRecord(recordData);
+        }
+
     }
 }
 

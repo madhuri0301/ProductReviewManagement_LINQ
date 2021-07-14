@@ -75,6 +75,9 @@ namespace ProductReviewManagement_LINQ
 
             Console.WriteLine("\n Data ID 10th Record ");
             management.GetRecord_ByUserID(list);
+
+            Console.WriteLine("\n Data ID 11th Record ");
+            management.GetRecord_ByUserID1(list);
             Console.ReadKey();
         }
 
