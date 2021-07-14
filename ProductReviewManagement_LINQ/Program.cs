@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace ProductReviewManagement_LINQ
 {
@@ -57,6 +58,13 @@ namespace ProductReviewManagement_LINQ
 
             Console.WriteLine("\n Skip Top Five Records");
             management.SkipTopFiveRecord(list);
+
+            Console.WriteLine("\n Data_Table");
+            DataTable data = management.CreateTable(list);
+            foreach (var table in list)
+            {
+                data.Rows.Add(table.ProductId, table.UserId, table.Rating, table.Review, table.isLike);
+            }
             Console.ReadKey();
         }
 
