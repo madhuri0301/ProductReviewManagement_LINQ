@@ -25,6 +25,11 @@ namespace ProductReviewManagement_LINQ
                 Console.WriteLine("Product id = " + list.ProductId + " User id = " + list.UserId + " Rating is = " + list.Rating + " Review is = " + list.Review + " isLike = " + list.isLike);
             }
         }
+        /// <summary>
+        /// Method For Selected Records
+        /// alias : productReview
+        /// </summary>
+        /// <param name="listProductReview"></param>
         public void SelectRecords(List<ProductReview> listProductReview)
         {
             var recordData = (from productReview in listProductReview
@@ -34,12 +39,24 @@ namespace ProductReviewManagement_LINQ
 
             DisplayRecord(recordData);
         }
-
+        /// <summary>
+        /// Method To Display List
+        /// </summary>
+        /// <param name="record"></param>
         public void DisplayRecord(List<ProductReview> record)
         {
             foreach (var lists in record)
             {
                 Console.WriteLine("Product id = " + lists.ProductId + " User id = " + lists.UserId + " Rating is = " + lists.Rating + " Review is = " + lists.Review + " isLike = " + lists.isLike);
+            }
+        }
+        public void CountOfRecords(List<ProductReview> listProductReview)
+        {
+            var recordData = listProductReview.GroupBy(x => x.ProductId).Select(x => new { ProductID = x.Key, Count = x.Count() });
+
+            foreach (var list in recordData)
+            {
+                Console.WriteLine(list.ProductID + "-----" + list.Count);
             }
         }
     }

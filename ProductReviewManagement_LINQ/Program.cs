@@ -49,6 +49,9 @@ namespace ProductReviewManagement_LINQ
 
             Console.WriteLine("\n Select Record 1 , 4 , 9 Whos Rating > 3");
             management.SelectRecords(list);
+
+            Console.WriteLine("\n Count of Records Using GroupBy");
+            management.CountOfRecords(list);
             Console.ReadKey();
         }
 
